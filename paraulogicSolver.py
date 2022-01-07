@@ -136,7 +136,7 @@ class paraulogicSolver(object):
         output = ''
         to_display = self.respostes if all else self.tutis
 
-        for i, word in enumerate(to_display):
+        for i, word in enumerate(sorted(to_display)):
             tick = '+ ' if i%6 < 3 else '- '
             endline = '\n' if i%3 == 2 else ''
             spaces = ' '*(18-len(word))
