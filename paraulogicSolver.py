@@ -65,10 +65,6 @@ class paraulogicSolver(object):
         """..."""
         diccionary = open('DISC2-LP.txt', 'r')
         # remove '\n' and invalid short words
-        for i,line in enumerate(diccionary):
-            print(line[:-1].lower())
-            if i == 10:
-                break
         return {line[:-1].lower() for line in diccionary if len(line[:-1]) >= 3}
 
     def _answers(self):
