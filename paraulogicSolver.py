@@ -16,7 +16,6 @@ class paraulogicSolver(object):
 
         self.vermella = vermella # Needed letter
         self.blaves = blaves # Available letters
-        self.blaves = self._accents()
         self._all_letters = {'·','-'}
         self._all_letters = self._all_letters.union(self.blaves)
         self._all_letters.add(self.vermella)
@@ -62,33 +61,15 @@ class paraulogicSolver(object):
 
 # ---------------------------------- PRIVATE ---------------------------------
 
-    def _accents(self):
-        """..."""
-        accents_adding = set()
-
-        for letter in self.blaves:
-            if letter == 'a':
-                accents_adding.add('à')
-            elif letter == 'e':
-                accents_adding.add('é')
-                accents_adding.add('è')
-            elif letter == 'i':
-                accents_adding.add('í')
-                accents_adding.add('ï')
-            elif letter == 'o':
-                accents_adding.add('ó')
-                accents_adding.add('ò')
-            elif letter == 'u':
-                accents_adding.add('ú')
-                accents_adding.add('ü')
-
-        return self.blaves.union(accents_adding)
-
     def _loadData(self):
         """..."""
-        diccionary = open('catala.dic', 'r')
+        diccionary = open('DISC2-LP.txt', 'r')
         # remove '\n' and invalid short words
-        return {line[:-1] for line in diccionary if len(line[:-1]) >= 3}
+        for i,line in enumerate(diccionary):
+            print(line[:-1].lower())
+            if i == 10:
+                break
+        return {line[:-1].lower() for line in diccionary if len(line[:-1]) >= 3}
 
     def _answers(self):
         """..."""
