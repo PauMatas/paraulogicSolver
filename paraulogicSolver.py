@@ -86,22 +86,11 @@ class paraulogicSolver(object):
     def _allIn(self):
         """..."""
         answers = set()
-        candidates = set()
 
-        for word in self._data:
+        for word in self.respostes:
             valid = True
-            for must in self._all_letters:
+            for must in self._all_letters.difference({'·','-'}):
                 if word.find(must) == -1:
-                    valid = False
-            if valid:
-                candidates.add(word)
-
-        for word in candidates:
-            valid = True
-            candidate = ''
-            for letter in word:
-                candidate += letter
-                if letter not in self._all_letters:
                     valid = False
             if valid:
                 answers.add(word)
